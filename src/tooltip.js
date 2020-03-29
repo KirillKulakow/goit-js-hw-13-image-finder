@@ -3,17 +3,17 @@
 let tooltipElem;
 
 document.onmouseover = function(event) {
-    let target = event.target;
-    let tooltipHtml = target.dataset.tooltip;
+    const target = event.target;
+    const tooltipHtml = event.target.dataset.tooltip;
     if (!tooltipHtml) return;
     tooltipElem = document.createElement('div');
     tooltipElem.className = 'tooltip';
     tooltipElem.innerHTML = tooltipHtml;
     document.body.append(tooltipElem);
-    let coords = target.getBoundingClientRect();
-    let left = coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
+    const coords = target.getBoundingClientRect();
+    const left = coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
     if (left < 0) left = 0;
-    let top = coords.top - tooltipElem.offsetHeight - 5;
+    const top = coords.top - tooltipElem.offsetHeight - 5;
     if (top < 0) {
     top = coords.top + target.offsetHeight + 5;
     };
